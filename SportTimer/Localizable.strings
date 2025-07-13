@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  SportTimer
+
+  Created by Nikolay Taran on 7/10/25.
+  
+*/
+
+/**
+ Navigation Titles
+ */
+"HomeTitle" = "Welcome!";
+"TimerTitle" = "New Timer";
+"ProfileTitle" = "Your Profile";
+"HistoryTitle" = "Last Trainings";
+"SettingsTitle" = "App Settings";
+"StatisticsTitle" = "Your Statistics";
+
+/**
+ Tab Bar Tabs
+ */
+"HomeTab" = "Home";
+"TimerTab" = "Timer";
+"HistoryTab" = "History";
+"ProfileTab" = "Profile";
+
+/**
+ Profile
+ */
+"AboutApp" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tincidunt sem semper lorem porta, at venenatis risus scelerisque. Duis in elit est. Sed id risus ex. Phasellus vitae sapien a orci fringilla pharetra. Suspendisse gravida metus eu scelerisque porttitor. Vestibulum laoreet bibendum sollicitudin. Cras sit amet justo fermentum, scelerisque dolor fermentum, hendrerit orci. In nisi libero, vehicula eu facilisis dignissim, accumsan quis augue. Ut sit amet ex et lectus tincidunt gravida. Vivamus placerat gravida nisl a pretium.
+
+Vivamus aliquet nulla porttitor iaculis ornare. Quisque non est vel ante varius consectetur sed eu sapien. Praesent dictum, metus non venenatis consectetur, arcu quam dignissim metus, id blandit sem magna quis purus. Aenean nunc mauris, luctus eget efficitur quis, aliquet eget nulla. Suspendisse potenti. Nulla iaculis justo ac nulla viverra, ut porttitor urna placerat. Nunc consequat bibendum odio, vel eleifend tortor sagittis quis. Maecenas lacinia maximus tellus. Praesent cursus in massa sed facilisis.
+
+Etiam id lectus enim. Morbi ultricies lacinia placerat. Nulla in odio ac turpis laoreet pellentesque at ut enim. Vivamus laoreet, est at consequat faucibus, magna erat scelerisque ex, quis faucibus lectus ante vitae odio. Aliquam sit amet lectus magna. Pellentesque aliquet tempus diam interdum pellentesque. Nullam posuere mi quis efficitur aliquam. Maecenas nisl augue, dapibus a ligula iaculis, sagittis porta lacus. Curabitur cursus tellus sit amet nisl molestie, at rutrum metus interdum. In vel iaculis nibh. Cras mattis ex et auctor congue. Etiam finibus sollicitudin augue, non molestie ipsum tempus sit amet.
+
+Phasellus a lacus sit amet augue gravida gravida. Sed hendrerit, sapien sed pellentesque consectetur, erat urna imperdiet est, eu viverra dui dolor sit amet odio. Vivamus laoreet, erat in lacinia rhoncus, diam magna ullamcorper ante, vitae facilisis leo sem in magna. Nunc non augue non nunc hendrerit gravida non et purus. In orci leo, eleifend eget turpis a, finibus interdum ante. Nunc commodo dolor quis lacus dapibus efficitur. Maecenas et odio pulvinar arcu imperdiet tempus nec eget felis. Proin bibendum felis eu odio bibendum hendrerit.
+
+Integer tortor elit, bibendum vel massa vel, rhoncus feugiat purus. Ut at erat porttitor, elementum leo et, porta magna. Quisque quam augue, consequat nec magna nec, lacinia tempus libero. Proin ac dictum dolor. Curabitur maximus urna lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque id tortor eu erat volutpat elementum. Vestibulum cursus ac tellus commodo sodales. Curabitur laoreet at nibh vel volutpat. Cras vel lacus aliquet ipsum eleifend placerat nec in eros. Curabitur ut gravida arcu, ut vulputate ante. Etiam malesuada ut enim ac ornare.";
