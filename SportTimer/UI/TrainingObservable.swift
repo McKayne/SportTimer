@@ -20,7 +20,7 @@ class TrainingObservable: ObservableObject {
     @Published var isTrainingPaused = false
     
     @Published var type = "Other"
-    @Published var descriptionText = "Such a nice workout today!"
+    @Published var descriptionText = NSLocalizedString("TrainingPlaceholder", comment: "")
     
     @Published var currentTimerSeconds = 0
     @Published var formattedTimerString = ""

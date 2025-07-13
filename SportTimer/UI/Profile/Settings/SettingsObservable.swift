@@ -29,6 +29,12 @@ class SettingsObservable: ObservableObject {
         }
     }
     
+    func clearAppCache(context: NSManagedObjectContext) {
+        Task {
+            await clearTrainingHistory(context: context)
+        }
+    }
+    
     private func updateTimerSoundID(context: NSManagedObjectContext, soundID: Int) async {
         await clearPreviousSettings(context: context)
         
@@ -47,6 +53,25 @@ class SettingsObservable: ObservableObject {
     
     private func clearPreviousSettings(context: NSManagedObjectContext) async {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AppSettings")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            
+            if let result = result as? [NSManagedObject] {
+                for obsoleteObject in result {
+                    context.delete(obsoleteObject)
+                }
+                
+                try context.save()
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func clearTrainingHistory(context: NSManagedObjectContext) async {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Workout")
         request.returnsObjectsAsFaults = false
         
         do {

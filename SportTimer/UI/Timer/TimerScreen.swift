@@ -44,7 +44,7 @@ struct TimerScreen: View {
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .actionSheet(isPresented: $timerObservable.shouldPresentModeSelection) {
-                ActionSheet(title: Text("Training mode"), message: nil, buttons: timerObservable.trainingModesList)
+                ActionSheet(title: Text(NSLocalizedString("TrainingMode", comment: "")), message: nil, buttons: timerObservable.trainingModesList)
             }.onAppear {
                 timerObservable.setupTrainingModesList(context: viewContext)
                 timerObservable.fetchTimerState(context: viewContext)

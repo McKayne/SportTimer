@@ -25,7 +25,7 @@ struct SettingsScreen: View {
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .actionSheet(isPresented: $settingsObservable.shouldPresentSoundSelection) {
-                ActionSheet(title: Text("Timer sound"), message: nil, buttons: settingsObservable.timerSoundList)
+                ActionSheet(title: Text(NSLocalizedString("TimerSound", comment: "")), message: nil, buttons: settingsObservable.timerSoundList)
             }.task {
                 settingsObservable.setupTimerSoundList(context: viewContext)
             }
@@ -34,11 +34,11 @@ struct SettingsScreen: View {
     @ViewBuilder
     var timerSound: some View {
         VStack {
-            Text("Timer sound")
+            Text(NSLocalizedString("TimerSound", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             
-            SolidButton(text: "Set timer sound") {
+            SolidButton(text: NSLocalizedString("SetTimerSound", comment: "")) {
                 settingsObservable.shouldPresentSoundSelection = true
             }
         }
@@ -47,13 +47,13 @@ struct SettingsScreen: View {
     @ViewBuilder
     var removeData: some View {
         VStack {
-            Text("App cache")
+            Text(NSLocalizedString("AppCache", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             
-            SolidButton(text: "Remove all data") {
+            SolidButton(text: NSLocalizedString("ClearCache", comment: "")) {
                 showConfirmationDialog {
-                    
+                    settingsObservable.clearAppCache(context: viewContext)
                 }
             }
         }
@@ -62,22 +62,24 @@ struct SettingsScreen: View {
     @ViewBuilder
     var about: some View {
         VStack {
-            Text("About the app")
+            Text(NSLocalizedString("About", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             
-            StatsLabel(title: "App version:", value: "1.0 (1)")
+            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                StatsLabel(title: NSLocalizedString("AppVersion", comment: ""), value: appVersion)
+            }
         }
     }
     
     private func showConfirmationDialog(confirmationHandler: @escaping () -> Void) {
-        let alert = UIAlertController(title: "Confirm this action", message: "Are you sure you want to delete all app data? This cannot be undone", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("ConfirmAction", comment: ""), message: NSLocalizedString("ClearConfirmation", comment: ""), preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) {_ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) {_ in
             alert.dismiss(animated: true)
         })
         
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive) {_ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .destructive) {_ in
             alert.dismiss(animated: true)
             
             confirmationHandler()

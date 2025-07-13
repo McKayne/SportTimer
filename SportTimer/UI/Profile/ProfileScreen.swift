@@ -66,7 +66,7 @@ struct ProfileScreen: View {
                     .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
             }
                 
-            Text("Tap to change your avatar")
+            Text(NSLocalizedString("ChangeAvatar", comment: ""))
                 .multilineTextAlignment(.center)
         }.frame(maxWidth: .infinity)
             .background(.white)
@@ -75,13 +75,13 @@ struct ProfileScreen: View {
     @ViewBuilder
     var statistics: some View {
         VStack {
-            Text("Your Statistics:")
+            Text(NSLocalizedString("YourStatistics", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             
-            StatsLabel(title: "Total workouts done:", value: String(profileObservable.totalNumberOfWorkouts))
+            StatsLabel(title: NSLocalizedString("TotalWorkouts", comment: ""), value: String(profileObservable.totalNumberOfWorkouts))
             
-            SolidButton(text: "Full statistics") {
+            SolidButton(text: NSLocalizedString("FullStatistics", comment: "")) {
                 profileObservable.shouldNavigateToStatistics = true
             }
             
@@ -94,11 +94,11 @@ struct ProfileScreen: View {
     @ViewBuilder
     var settings: some View {
         VStack {
-            Text("App settings")
+            Text(NSLocalizedString("AppSettings", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             
-            SolidButton(text: "Settings") {
+            SolidButton(text: NSLocalizedString("Settings", comment: "")) {
                 profileObservable.shouldNavigateToSettings = true
             }
 
@@ -111,7 +111,7 @@ struct ProfileScreen: View {
     @ViewBuilder
     var about: some View {
         VStack {
-            Text("About this app:")
+            Text(NSLocalizedString("About", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             

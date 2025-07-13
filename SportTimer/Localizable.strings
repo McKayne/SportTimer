@@ -9,24 +9,82 @@
 /**
  Navigation Titles
  */
-"HomeTitle" = "Welcome!";
-"TimerTitle" = "New Timer";
-"ProfileTitle" = "Your Profile";
-"HistoryTitle" = "Last Trainings";
-"SettingsTitle" = "App Settings";
-"StatisticsTitle" = "Your Statistics";
+"HomeTitle" = "Главное";
+"TimerTitle" = "Таймер";
+"ProfileTitle" = "Ваш профиль";
+"HistoryTitle" = "История";
+"SettingsTitle" = "Настройки";
+"StatisticsTitle" = "Всего тренировок";
 
 /**
  Tab Bar Tabs
  */
-"HomeTab" = "Home";
-"TimerTab" = "Timer";
-"HistoryTab" = "History";
-"ProfileTab" = "Profile";
+"HomeTab" = "Главное";
+"TimerTab" = "Таймер";
+"HistoryTab" = "История";
+"ProfileTab" = "Профиль";
+
+/**
+ Home Screen
+ */
+"TotalWorkouts" = "Всего тренировок:";
+"LatestResults" = "Ваши последние тренировки";
+
+/**
+ Timer screen
+ */
+"TrainingMode" = "Режим тренировки";
+"TrainingPlaceholder" = "Это была отличная тренировка!";
+
+/**
+ Profile screen
+ */
+"ChangeAvatar" = "Нажмите для смены аватара";
+"YourStatistics" = "Ваша статистика";
+"FullStatistics" = "Полная статистика";
+"AppSettings" = "Настройки приложения";
+"Settings" = "Перейти в настройки";
+
+/**
+ Settings screen
+ */
+"TimerSound" = "Звук таймера";
+"SetTimerSound" = "Установка звука таймера";
+"AppCache" = "Кэш приложения";
+"ClearCache" = "Удалить все данные";
+"AppVersion" = "Версия приложения";
+
+/**
+ Alert messages
+ */
+"ConfirmAction" = "Подтвердите действие";
+"DeleteConfirmation" = "Вы действительно хотите удалить эту запись? Откатить изменения будет невозможно";
+"ClearConfirmation" = "Вы действительно хотите удалить все записи о тренировках? Откатить изменения будет невозможно";
+"FinishConfirmation" = "Вы действительно хотите завершить тренировку?";
+"Cancel" = "Отмена";
+"Delete" = "Удалить";
+"Finish" = "Завершить";
+
+/**
+ Training button
+ */
+"StartTraining" = "Начать тренировку";
+"PauseTraining" = "Пауза";
+"ResumeTraining" = "Возобновить тренировку";
+"FinishTraining" = "Завершить тренировку";
+
+/**
+ Training card
+ */
+"TrainingDate" = "Время тренировки:";
+"TrainingDuration" = "Длительность:";
+"TrainingMode" = "Режим тренировки:";
+"NoTrainingNotes" = "Без заметок";
 
 /**
  Profile
  */
+"About" = "О приложении:";
 "AboutApp" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tincidunt sem semper lorem porta, at venenatis risus scelerisque. Duis in elit est. Sed id risus ex. Phasellus vitae sapien a orci fringilla pharetra. Suspendisse gravida metus eu scelerisque porttitor. Vestibulum laoreet bibendum sollicitudin. Cras sit amet justo fermentum, scelerisque dolor fermentum, hendrerit orci. In nisi libero, vehicula eu facilisis dignissim, accumsan quis augue. Ut sit amet ex et lectus tincidunt gravida. Vivamus placerat gravida nisl a pretium.
 
 Vivamus aliquet nulla porttitor iaculis ornare. Quisque non est vel ante varius consectetur sed eu sapien. Praesent dictum, metus non venenatis consectetur, arcu quam dignissim metus, id blandit sem magna quis purus. Aenean nunc mauris, luctus eget efficitur quis, aliquet eget nulla. Suspendisse potenti. Nulla iaculis justo ac nulla viverra, ut porttitor urna placerat. Nunc consequat bibendum odio, vel eleifend tortor sagittis quis. Maecenas lacinia maximus tellus. Praesent cursus in massa sed facilisis.

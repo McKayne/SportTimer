@@ -22,11 +22,11 @@ struct TrainingButton: View {
                 .colorMultiply(isTrainingPaused ? .orange : (isTrainingStarted ? .green : .red))
                 .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
             
-            Text(isTrainingPaused ? "Tap to resume training" : (isTrainingStarted ? "Tap to pause training" : "Tap to start training"))
+            Text(NSLocalizedString(isTrainingPaused ? "ResumeTraining" : (isTrainingStarted ? "PauseTraining" : "StartTraining"), comment: ""))
                 .multilineTextAlignment(.center)
             
             if isTrainingPaused {
-                SolidButton(text: "Finish training") {
+                SolidButton(text: NSLocalizedString("FinishTraining", comment: "")) {
                     finishTrainingCompletion()
                 }
             }

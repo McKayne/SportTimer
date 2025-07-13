@@ -47,14 +47,14 @@ struct HomeScreen: View {
     @ViewBuilder
     var shortStats: some View {
         VStack {
-            StatsLabel(title: "Total workouts done:", value: String(homeObservable.totalNumberOfWorkouts))
+            StatsLabel(title: NSLocalizedString("TotalWorkouts", comment: ""), value: String(homeObservable.totalNumberOfWorkouts))
         }
     }
     
     @ViewBuilder
     var lastTrainingInfo: some View {
         VStack {
-            Text("Latest results")
+            Text(NSLocalizedString("LatestResults", comment: ""))
                 .font(.system(size: 20, weight: .semibold))
                 .padding()
             

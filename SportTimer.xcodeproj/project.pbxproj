@@ -474,8 +474,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportTimer/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to library to allow avatar selection";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to library to allow avatar selection";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Приложению требуется доступ к галерее для выбора аватара";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Приложению требуется доступ к галерее для выбора аватара";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -508,8 +508,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportTimer/Info.plist;
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to library to allow avatar selection";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to library to allow avatar selection";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Приложению требуется доступ к галерее для выбора аватара";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Приложению требуется доступ к галерее для выбора аватара";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

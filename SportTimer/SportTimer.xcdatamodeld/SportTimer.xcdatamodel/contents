@@ -3,9 +3,6 @@
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES" codeGenerationType="class">
         <attribute name="timerSoundID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
     <entity name="LastTraining" representedClassName="LastTraining" syncable="YES" codeGenerationType="class">
         <attribute name="numberOfSecondsCounted" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timerPausedAt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -21,7 +18,6 @@
     </entity>
     <elements>
         <element name="AppSettings" positionX="-63" positionY="-9" width="128" height="44"/>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="LastTraining" positionX="-63" positionY="-9" width="128" height="89"/>
         <element name="Workout" positionX="-63" positionY="9" width="128" height="104"/>
     </elements>

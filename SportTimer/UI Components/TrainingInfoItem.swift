@@ -28,7 +28,7 @@ struct TrainingInfoItem: View {
                 }.frame(maxWidth: (UIScreen.main.bounds.width - 40) * 2 / 3, maxHeight: .infinity)
                 
                 HStack {
-                    Text("Delete")
+                    Text(NSLocalizedString("Delete", comment: ""))
                         .font(.system(size: 16, weight: .bold))
                         .padding(.horizontal, 20)
                         .foregroundColor(.white)
@@ -87,13 +87,13 @@ struct TrainingInfoItem: View {
     var infoContents: some View {
         VStack(alignment: .leading) {
             
-            StatsLabel(title: "Training date:", value: workoutDate).padding(.vertical, 8)
+            StatsLabel(title: NSLocalizedString("TrainingDate", comment: ""), value: workoutDate).padding(.vertical, 8)
             
-            StatsLabel(title: "Training duration:", value: workoutDuration).padding(.vertical, 8)
+            StatsLabel(title: NSLocalizedString("TrainingDuration", comment: ""), value: workoutDuration).padding(.vertical, 8)
             
-            StatsLabel(title: "Training mode:", value: workout.type ?? "Other").padding(.vertical, 8)
+            StatsLabel(title: NSLocalizedString("TrainingMode", comment: ""), value: workout.type ?? "Other").padding(.vertical, 8)
             
-            Text(workout.notes ?? "No notes for this workout")
+            Text(workout.notes ?? NSLocalizedString("NoTrainingNotes", comment: ""))
                 .font(.system(size: 16, weight: .thin))
                 .padding(.horizontal, 20).padding(.vertical, 8)
         }.frame(width: UIScreen.main.bounds.width - 40)
