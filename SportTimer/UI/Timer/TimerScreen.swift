@@ -71,6 +71,7 @@ struct TimerScreen: View {
                 .font(.system(size: 30, weight: .black))
                 .padding()
         }.frame(maxWidth: .infinity, alignment: .center)
+            .animation(Animation.default.speed(1))
     }
     
     @ViewBuilder

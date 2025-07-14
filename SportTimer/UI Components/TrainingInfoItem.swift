@@ -103,5 +103,6 @@ struct TrainingInfoItem: View {
         }.frame(width: UIScreen.main.bounds.width - margin * 2)
             .background(Color("Background"))
             .offset(x: infoOffset, y: 0)
+            .animation(Animation.default.speed(1))
     }
 }
