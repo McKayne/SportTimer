@@ -37,6 +37,7 @@ struct ContentView: View {
                     Text(NSLocalizedString("ProfileTab", comment: ""))
                 }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("Background"))
     }
     
     @ViewBuilder

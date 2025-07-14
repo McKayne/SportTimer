@@ -21,32 +21,34 @@ struct TrainingInfoItem: View {
     @Binding var infoOffset: CGFloat
     
     var body: some View {
+        let margin: CGFloat = 16
+        
         ZStack {
             HStack {
                 HStack {
                     
-                }.frame(maxWidth: (UIScreen.main.bounds.width - 40) * 2 / 3, maxHeight: .infinity)
+                }.frame(maxWidth: (UIScreen.main.bounds.width - margin * 2) * 2 / 3, maxHeight: .infinity)
                 
                 HStack {
                     Text(NSLocalizedString("Delete", comment: ""))
                         .font(.system(size: 16, weight: .bold))
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 16)
                         .foregroundColor(.white)
-                }.frame(maxWidth: (UIScreen.main.bounds.width - 40) / 3, maxHeight: .infinity)
-                    .background(.red)
+                }.frame(maxWidth: (UIScreen.main.bounds.width - margin * 2) / 3, maxHeight: .infinity)
+                    .background(Color("Danger"))
                     .onTapGesture {
                         infoOffset = 0
                         
                         deletionCompletion()
                     }
-            }.frame(maxWidth: UIScreen.main.bounds.width - 40, maxHeight: .infinity)
-                .background(.red)
+            }.frame(maxWidth: UIScreen.main.bounds.width - margin * 2, maxHeight: .infinity)
+                .background(Color("Danger"))
                 .cornerRadius(8)
             
             infoContents
             
-        }.frame(width: UIScreen.main.bounds.width - 40)
-            .overlay(RoundedRectangle(cornerRadius: 12).stroke(.pink, lineWidth: 3))
+        }.frame(width: UIScreen.main.bounds.width - margin * 2)
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("Secondary"), lineWidth: 3))
             .padding(.vertical, 8)
             .clipped()
             .highPriorityGesture(DragGesture(minimumDistance: 20, coordinateSpace: .global).onChanged{ value in
@@ -54,7 +56,7 @@ struct TrainingInfoItem: View {
                 
                 let horizontal = value.translation.width
                 
-                if horizontal <= 0, horizontal >= -(UIScreen.main.bounds.width - 40) / 3 {
+                if horizontal <= 0, horizontal >= -(UIScreen.main.bounds.width - margin * 2) / 3 {
                     infoOffset = horizontal
                 }
             }.onEnded { value in
@@ -62,8 +64,8 @@ struct TrainingInfoItem: View {
                 
                 let horizontal = value.translation.width
                 
-                if horizontal <= -(UIScreen.main.bounds.width - 40) / 6 {
-                    infoOffset = -(UIScreen.main.bounds.width - 40) / 3
+                if horizontal <= -(UIScreen.main.bounds.width - margin * 2) / 6 {
+                    infoOffset = -(UIScreen.main.bounds.width - margin * 2) / 3
                 } else {
                     infoOffset = 0
                 }
@@ -85,6 +87,8 @@ struct TrainingInfoItem: View {
     
     @ViewBuilder
     var infoContents: some View {
+        let margin: CGFloat = 16
+        
         VStack(alignment: .leading) {
             
             StatsLabel(title: NSLocalizedString("TrainingDate", comment: ""), value: workoutDate).padding(.vertical, 8)
@@ -95,9 +99,9 @@ struct TrainingInfoItem: View {
             
             Text(workout.notes ?? NSLocalizedString("NoTrainingNotes", comment: ""))
                 .font(.system(size: 16, weight: .thin))
-                .padding(.horizontal, 20).padding(.vertical, 8)
-        }.frame(width: UIScreen.main.bounds.width - 40)
-            .background(.white)
+                .padding(.horizontal, 16).padding(.vertical, 8)
+        }.frame(width: UIScreen.main.bounds.width - margin * 2)
+            .background(Color("Background"))
             .offset(x: infoOffset, y: 0)
     }
 }

@@ -41,7 +41,11 @@ struct HomeScreen: View {
             .onAppear {
                 homeObservable.fetchLatestTrainingItems(shouldLimit: true, context: viewContext)
                 homeObservable.fetchTimerState(context: viewContext)
-            }
+                
+                homeObservable.startTimer(context: viewContext)
+            }.onDisappear {
+                homeObservable.stopTimer()
+            }.background(Color("Background"))
     }
     
     @ViewBuilder

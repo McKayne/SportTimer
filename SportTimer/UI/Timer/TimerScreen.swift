@@ -51,7 +51,7 @@ struct TimerScreen: View {
                 timerObservable.startTimer(context: viewContext)
             }.onDisappear {
                 timerObservable.stopTimer()
-            }
+            }.background(Color("Background"))
     }
     
     @ViewBuilder
@@ -75,9 +75,11 @@ struct TimerScreen: View {
     
     @ViewBuilder
     var trainingDescription: some View {
+        let margin: CGFloat = 16
+        
         TextEditor(text: $timerObservable.descriptionText)
-            .frame(width: UIScreen.main.bounds.width - 40,
+            .frame(width: UIScreen.main.bounds.width - margin * 2,
                    height: UIScreen.main.bounds.height / 3)
-            .overlay(RoundedRectangle(cornerRadius: 12).stroke(.pink, lineWidth: 3))
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color("Secondary"), lineWidth: 3))
     }
 }

@@ -82,6 +82,7 @@ class TrainingObservable: ObservableObject {
             await fetchAndPlayTimerSound(context: context)
             await appendWorkout(context: context)
             await clearLastTraining(context: context)
+            await updateWorkoutList(shouldLimit: true, context: context, searchFilter: "")
         }
     }
     
@@ -98,11 +99,11 @@ class TrainingObservable: ObservableObject {
         UNUserNotificationCenter.current().add(request)
     }
     
-    func fetchLatestTrainingItems(shouldLimit: Bool, context: NSManagedObjectContext) {
+    func fetchLatestTrainingItems(shouldLimit: Bool, context: NSManagedObjectContext, searchFilter: String = "") {
         nowLoading = true
         
         Task {
-            await updateWorkoutList(shouldLimit: shouldLimit, context: context)
+            await updateWorkoutList(shouldLimit: shouldLimit, context: context, searchFilter: searchFilter)
         }
     }
     
@@ -149,17 +150,17 @@ class TrainingObservable: ObservableObject {
         timer = nil
     }
     
-        func removeTraining(shouldLimit: Bool, uuid: UUID, context: NSManagedObjectContext) {
+    func removeTraining(shouldLimit: Bool, uuid: UUID, context: NSManagedObjectContext) {
         Task {
             await removeTrainingFromHistory(uuid: uuid, context: context)
-            await updateWorkoutList(shouldLimit: shouldLimit, context: context)
+            await updateWorkoutList(shouldLimit: shouldLimit, context: context, searchFilter: "")
         }
     }
     
     // MARK: - Core Data methods
     
     @MainActor
-    private func updateWorkoutList(shouldLimit: Bool, context: NSManagedObjectContext) async {
+    private func updateWorkoutList(shouldLimit: Bool, context: NSManagedObjectContext, searchFilter: String) async {
         infoOffsets.removeAll()
         workoutList.removeAll()
         
@@ -173,7 +174,7 @@ class TrainingObservable: ObservableObject {
                 totalNumberOfWorkouts = result.count
                 
                 for item in result {
-                    if let workout = item as? Workout {
+                    if let workout = item as? Workout, (searchFilter.count > 0 && workout.type?.contains(searchFilter) == true || searchFilter.count == 0) {
                         workoutList.append(workout)
                         infoOffsets.append(0)
                     }

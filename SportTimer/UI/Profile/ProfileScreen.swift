@@ -47,7 +47,7 @@ struct ProfileScreen: View {
             }.onAppear {
                 profileObservable.fetchUserProfile()
                 profileObservable.fetchLatestTrainingItems(shouldLimit: true, context: viewContext)
-            }
+            }.background(Color("Background"))
     }
     
     @ViewBuilder
@@ -69,7 +69,7 @@ struct ProfileScreen: View {
             Text(NSLocalizedString("ChangeAvatar", comment: ""))
                 .multilineTextAlignment(.center)
         }.frame(maxWidth: .infinity)
-            .background(.white)
+            .background(Color("Background"))
     }
     
     @ViewBuilder
@@ -117,7 +117,7 @@ struct ProfileScreen: View {
             
             Text(NSLocalizedString("AboutApp", comment: ""))
                 .font(.system(size: 16, weight: .medium))
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 16)
         }
     }
 }

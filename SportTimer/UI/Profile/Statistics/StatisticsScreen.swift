@@ -31,6 +31,6 @@ struct StatisticsScreen: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
                 statisticsObservable.fetchTypeStats(context: viewContext)
-            }
+            }.background(Color("Background"))
     }
 }

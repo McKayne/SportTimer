@@ -9,5 +9,5 @@ import SwiftUI
 
 class HistoryObservable: TrainingObservable {
     
-    
+    @Published var searchFilter = ""
 }

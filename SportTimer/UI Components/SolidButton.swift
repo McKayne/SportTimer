@@ -14,12 +14,14 @@ struct SolidButton: View {
     var actionHandler: () -> Void
     
     var body: some View {
+        let margin: CGFloat = 16
+        
         VStack {
             Text(text)
                 .font(.system(size: 16, weight: .semibold))
                 .padding()
-        }.frame(width: UIScreen.main.bounds.width - 40, height: 50)
-            .background(.pink)
+        }.frame(width: UIScreen.main.bounds.width - margin * 2, height: 50)
+            .background(Color("Secondary"))
             .cornerRadius(8)
             .onTapGesture {
                 actionHandler()

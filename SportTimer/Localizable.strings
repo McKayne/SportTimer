@@ -37,6 +37,11 @@
 "TrainingPlaceholder" = "Это была отличная тренировка!";
 
 /**
+ History screen
+ */
+"Search" = "Поиск по истории";
+
+/**
  Profile screen
  */
 "ChangeAvatar" = "Нажмите для смены аватара";

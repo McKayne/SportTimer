@@ -17,13 +17,13 @@ struct StatsLabel: View {
         HStack {
             Text(title)
                 .font(.system(size: 16, weight: .medium))
-                .padding(.leading, 20)
+                .padding(.leading, 16)
             
             Spacer()
             
             Text(value)
                 .font(.system(size: 16, weight: .thin))
-                .padding(.trailing, 20)
+                .padding(.trailing, 16)
         }.frame(maxWidth: .infinity)
     }
 }

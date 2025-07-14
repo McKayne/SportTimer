@@ -28,7 +28,7 @@ struct SettingsScreen: View {
                 ActionSheet(title: Text(NSLocalizedString("TimerSound", comment: "")), message: nil, buttons: settingsObservable.timerSoundList)
             }.task {
                 settingsObservable.setupTimerSoundList(context: viewContext)
-            }
+            }.background(Color("Background"))
     }
     
     @ViewBuilder

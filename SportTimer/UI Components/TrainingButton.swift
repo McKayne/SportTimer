@@ -19,7 +19,7 @@ struct TrainingButton: View {
             Image(systemName: "power")
                 .resizable()
                 .colorInvert()
-                .colorMultiply(isTrainingPaused ? .orange : (isTrainingStarted ? .green : .red))
+                .colorMultiply(Color(isTrainingPaused ? "Warning" : (isTrainingStarted ? "Success" : "Danger")))
                 .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
             
             Text(NSLocalizedString(isTrainingPaused ? "ResumeTraining" : (isTrainingStarted ? "PauseTraining" : "StartTraining"), comment: ""))
@@ -31,6 +31,6 @@ struct TrainingButton: View {
                 }
             }
         }.frame(maxWidth: .infinity)
-            .background(.white)
+            .background(Color("Background"))
     }
 }
