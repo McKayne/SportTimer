@@ -30,18 +30,27 @@ struct HistoryScreen: View {
             
                 ScrollView {
                     VStack {
-                    
-                        ForEach(0..<historyObservable.infoOffsets.count, id: \.self) { index in
-                            TrainingInfoItem(workout: historyObservable.workoutList[index], clearCompletion: {
-                                historyObservable.clearOffsetsExceptCurrent(index: index)
-                            }, deletionCompletion: {
-                                showItemDeletionDialog {
-                                    if let uuid = historyObservable.workoutList[index].id {
-                                        historyObservable.searchFilter = ""
-                                        historyObservable.removeTraining(shouldLimit: false, uuid: uuid, context: viewContext)
-                                    }
+                        
+                        ForEach(0..<historyObservable.workoutHistoryGroups.keys.count, id: \.self) { groupIndex in
+                            let key = Array(historyObservable.workoutHistoryGroups.keys)[groupIndex]
+                            
+                            Text(key)
+                                .font(.system(size: 16, weight: .semibold))
+                                .padding()
+                            
+                            if let workoutGroup = historyObservable.workoutHistoryGroups[key] {
+                                ForEach(0..<workoutGroup.count, id: \.self) { index in
+                                    TrainingInfoItem(workout: workoutGroup[index], clearCompletion: {                                            historyObservable.clearOffsetsExceptCurrent(groupIndex: groupIndex, index: index)
+                                    }, deletionCompletion: {
+                                        showItemDeletionDialog {
+                                            if let uuid = workoutGroup[index].id {
+                                                historyObservable.searchFilter = ""
+                                                historyObservable.removeTraining(uuid: uuid, context: viewContext)
+                                            }
+                                        }
+                                    }, infoOffset: $historyObservable.groupInfoOffsets[groupIndex][index])
                                 }
-                            }, infoOffset: $historyObservable.infoOffsets[index])
+                            }
                         }
                     }
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -52,7 +61,7 @@ struct HistoryScreen: View {
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
-                historyObservable.fetchLatestTrainingItems(shouldLimit: false, context: viewContext)
+                historyObservable.fetchLatestTrainingItems(context: viewContext)
             }.background(Color("Background"))
     }
 }

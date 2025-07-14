@@ -180,12 +180,9 @@ class TrainingObservable: ObservableObject {
                     }
                 }
                 
-                workoutList.reverse()
-                infoOffsets.reverse()
-                
                 if shouldLimit, infoOffsets.count > 3 {
-                    workoutList = Array(workoutList.prefix(3))
-                    infoOffsets = Array(infoOffsets.prefix(3))
+                    workoutList = Array(workoutList.suffix(3))
+                    infoOffsets = Array(infoOffsets.suffix(3))
                 }
             }
         } catch let error {
@@ -275,7 +272,7 @@ class TrainingObservable: ObservableObject {
     }
     
     @MainActor
-    private func removeTrainingFromHistory(uuid: UUID, context: NSManagedObjectContext) async {
+    func removeTrainingFromHistory(uuid: UUID, context: NSManagedObjectContext) async {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Workout")
         request.returnsObjectsAsFaults = false
         
