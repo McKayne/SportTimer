@@ -15,6 +15,9 @@ class HistoryObservable: TrainingObservable {
     
     @Published var groupInfoOffsets: [[CGFloat]] = []
     
+    @Published var shouldPresentModeSelection = false
+    @Published var trainingModesList: [ActionSheet.Button] = []
+    
     func fetchLatestTrainingItems(context: NSManagedObjectContext) {
         nowLoading = true
         
@@ -40,6 +43,29 @@ class HistoryObservable: TrainingObservable {
         }
     }
     
+    func setupTrainingModesList(context: NSManagedObjectContext) {
+        type = ""
+        
+        trainingModesList.removeAll()
+        trainingModesList.append(.default(Text(NSLocalizedString("AllModes", comment: "")), action: { [weak self] in
+            self?.shouldPresentModeSelection = false
+                
+            self?.type = ""
+            
+            self?.fetchLatestTrainingItems(context: context)
+        }))
+        
+        TrainingModesEnum.allCases.forEach { modeName in
+            trainingModesList.append(.default(Text(modeName.rawValue), action: { [weak self] in
+                self?.shouldPresentModeSelection = false
+                    
+                self?.type = modeName.rawValue
+                    
+                self?.fetchLatestTrainingItems(context: context)
+            }))
+        }
+    }
+    
     @MainActor
     private func updateWorkoutList(context: NSManagedObjectContext) async {
         groupInfoOffsets.removeAll()
@@ -58,7 +84,8 @@ class HistoryObservable: TrainingObservable {
                 totalNumberOfWorkouts = result.count
                 
                 for item in result {
-                    if let workout = item as? Workout, let workoutDate = workout.date, (searchFilter.count > 0 && workout.type?.contains(searchFilter) == true || searchFilter.count == 0) {
+                    
+                    if let workout = item as? Workout, let workoutDate = workout.date, (type.count == 0 || workout.type?.contains(type) == true), (searchFilter.count > 0 && workout.notes?.contains(searchFilter) == true || searchFilter.count == 0) {
                         
                         var currentGroup: [Workout] = workoutHistoryGroups[formatter.string(from: workoutDate)] ?? []
                         currentGroup.append(workout)
